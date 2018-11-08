@@ -51,9 +51,9 @@ def maybe_download_and_extract(hypes):
 
     data_road_zip = os.path.join(data_dir, 'data_road.zip')
     vgg_weights = os.path.join(data_dir, 'vgg16.npy')
-    kitti_road_dir = os.path.join(data_dir, 'data_road/')
+    crack_dir = os.path.join(data_dir, 'data_road/')
 
-    if os.path.exists(vgg_weights) and os.path.exists(kitti_road_dir):
+    if os.path.exists(vgg_weights) and os.path.exists(crack_dir):
         return
 
     import tensorvision.utils as utils
@@ -147,7 +147,7 @@ def _make_data_gen(hypes, phase, data_dir):
 
     data_file = os.path.join(data_dir, data_file)
 
-    road_color = np.array(hypes['data']['road_color'])
+    crack_color = np.array(hypes['data']['crack_color'])
     background_color = np.array(hypes['data']['background_color'])
 
     data = _load_gt_file(hypes, data_file)
@@ -155,7 +155,7 @@ def _make_data_gen(hypes, phase, data_dir):
     for image, gt_image in data:
 
         gt_bg = np.all(gt_image == background_color, axis=2)
-        gt_road = np.all(gt_image == road_color, axis=2)
+        gt_road = np.all(gt_image == crack_color, axis=2)
 
         assert(gt_road.shape == gt_bg.shape)
         shape = gt_bg.shape
