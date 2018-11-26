@@ -41,7 +41,7 @@ else:
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 
-test_file = 'data_road/testing.txt'
+test_file = 'data_crack/testing.txt'
 
 
 def create_test_output(hypes, sess, image_pl, softmax):
@@ -75,8 +75,9 @@ def create_test_output(hypes, sess, image_pl, softmax):
         for i, image_file in enumerate(file):
                 image_file = image_file.rstrip()
                 image_file = os.path.join(image_dir, image_file)
-                image = scp.misc.imread(image_file)
+                image = scp.misc.imread(image_file, mode='RGB')
                 shape = image.shape
+                print(shape)
 
                 feed_dict = {image_pl: image}
 
@@ -88,7 +89,8 @@ def create_test_output(hypes, sess, image_pl, softmax):
                 green_image = utils.fast_overlay(image, hard)
 
                 name = os.path.basename(image_file)
-                new_name = name.split('_')[0] + "_road_" + name.split('_')[1]
+                # new_name = name.split('_')[0] + "_crack_" + name.split('_')[1]
+                new_name = 'crack_' + name
 
                 save_file = os.path.join(logdir, new_name)
                 logging.info("Writing file: %s", save_file)
@@ -123,7 +125,7 @@ def do_inference(logdir):
     # Tell TensorFlow that the model will be built into the default Graph.
     with tf.Graph().as_default():
 
-        # prepaire the tv session
+        # prepaire the tv sessionprint(shape)
 
         with tf.name_scope('Validation'):
             image_pl, label_pl = _create_input_placeholder()

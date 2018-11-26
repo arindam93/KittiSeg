@@ -28,9 +28,9 @@ import tensorvision.utils as utils
 
 from evaluation import kitti_test
 
-flags.DEFINE_string('RUN', 'KittiSeg_pretrained',
+flags.DEFINE_string('RUN', 'crackSeg_2018_11_07_17.56',
                     'Modifier for model parameters.')
-flags.DEFINE_string('hypes', 'hypes/KittiSeg.json',
+flags.DEFINE_string('hypes', 'hypes/crackSeg.json',
                     'File storing model parameters.')
 flags.DEFINE_string('name', None,
                     'Append a name Tag to run.')
