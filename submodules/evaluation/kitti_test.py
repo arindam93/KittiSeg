@@ -41,7 +41,7 @@ else:
 flags = tf.app.flags
 FLAGS = flags.FLAGS
 
-test_file = 'data_crack/testing.txt'
+test_file = 'data_crack_correct/testing.txt'
 
 
 def create_test_output(hypes, sess, image_pl, softmax):
