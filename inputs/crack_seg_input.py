@@ -206,6 +206,7 @@ def jitter_input(hypes, image, gt_image):
                                       patch_height, patch_width)
 
     assert(image.shape[:-1] == gt_image.shape[:-1])
+    print('shapes for jittered images', image.shape, gt_image.shape)
     return image, gt_image
 
 

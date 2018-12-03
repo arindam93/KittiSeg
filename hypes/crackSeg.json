@@ -6,6 +6,7 @@
     "optimizer_file" : "../optimizer/generic_optimizer.py",
     "evaluator_file" : "../evals/kitti_eval.py"
   },
+
   "path": ["../incl"],
 
   "data": {
