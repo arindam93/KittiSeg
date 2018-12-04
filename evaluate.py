@@ -28,7 +28,7 @@ import tensorvision.utils as utils
 
 from evaluation import kitti_test
 
-flags.DEFINE_string('RUN', 'crackSeg_2018_11_26_21.52',
+flags.DEFINE_string('RUN', 'crackSeg_2018_12_04_02.30',
                     'Modifier for model parameters.')
 flags.DEFINE_string('hypes', 'hypes/crackSeg.json',
                     'File storing model parameters.')
